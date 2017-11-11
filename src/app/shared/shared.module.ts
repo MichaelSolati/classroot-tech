@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MATERIAL } from './material';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -11,12 +11,14 @@ import { RouterModule } from '@angular/router';
     ...MATERIAL,
     FlexLayoutModule,
     ReactiveFormsModule,
+    FormsModule,
     RouterModule
   ],
   exports: [
     ...MATERIAL,
     FlexLayoutModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class SharedModule { }

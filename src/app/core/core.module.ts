@@ -5,6 +5,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 
 import { environment } from '../../environments/environment';
+import { SERVICES } from './services';
 
 @NgModule({
   imports: [
@@ -13,7 +14,9 @@ import { environment } from '../../environments/environment';
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
-  declarations: []
+  providers: [
+    ...SERVICES
+  ]
 })
 export class CoreModule {
   static forRoot(): ModuleWithProviders {

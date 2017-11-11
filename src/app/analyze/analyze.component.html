@@ -1,0 +1,38 @@
+<mat-toolbar color="primary">
+  <span>Classroot Tech - Analyze</span>
+</mat-toolbar>
+
+<div fxLayout="column" fxLayout.gt-xs="row" fxLayoutAlign="center">
+  <div fxFlex.xs="100" fxFlex.gt-xs="50" fxFlex.gt-sm="33" fxFlex.gt-md="25" class="mat-card-padding">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Picture</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <!-- <p>{{item.distance | fixed}} miles away</p> -->
+      </mat-card-content>
+      <mat-card-actions>
+        <!-- <a mat-button [routerLink]="['/', 'place', (item.placeId || item.$key)]" [fragment]="(item.placeId) ? item.$key : null">VIEW PLACE</a>
+        <a mat-button [href]="'https://www.google.com/maps/dir/'+(coordsUser | async)?.lat+','+(coordsUser | async)?.lng+'/'+item.coordinates.lat+','+item.coordinates.lng"
+          target="_blank">NAVIGATE TO</a> -->
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+<div class="mat-card-padding center-card">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Picture</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <img *ngIf="photo" [src]="photo" alt="User selected photo">
+      <input #fileInput type="file" accept="image/*;capture=camera" (change)="selectPhoto($event)" class="hide">
+      <p *ngIf="!photo">Select a photo so we can analyze your classroom</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="takePicture()">{{(photo)? 'RE':null}}SELECT PICTURE</button>
+      <button mat-button *ngIf="photo" (click)="submit()">SUBMIT</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
