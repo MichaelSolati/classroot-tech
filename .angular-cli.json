@@ -23,6 +23,9 @@
     "testTsconfig": "tsconfig.spec.json",
     "prefix": "cr",
     "styles": [
+      "../node_modules/normalizecss/normalize.css",
+      "styles/_classes.scss",
+      "styles/_components.scss",
       "styles.scss"
     ],
     "scripts": [],

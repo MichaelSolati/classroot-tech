@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import * as Hammer from 'hammerjs';
 
 import { CoreModule } from './core/core.module';
+import { SharedModule } from './shared/shared.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,7 +21,8 @@ export class HammerConfig extends HammerGestureConfig {
     BrowserModule.withServerTransition({ appId: 'classroot-tech' }),
     BrowserAnimationsModule,
     AppRoutingModule,
-    CoreModule.forRoot()
+    CoreModule.forRoot(),
+    SharedModule
   ],
   providers: [{
     provide: HAMMER_GESTURE_CONFIG,
