@@ -20,4 +20,20 @@ export class ResourcesService {
     return this._organizations;
   }
 
+  private _fetchOrganizations(): void {
+    this._organizations = this._fbDB.list('organizations', (ref: firebase.database.Reference) => {
+      return ref.orderByChild('id');
+    }).snapshotChanges().map((changes: any) => {
+      return changes.map((c) => ({ $key: c.payload.key, ...c.payload.val() }));
+    });
+  }
+
+  private _fetchResources() {
+    this._resources = this._fbDB.list('resources', (ref: firebase.database.Reference) => {
+      return ref.orderByChild('id');
+    }).snapshotChanges().map((changes: any) => {
+      return changes.map((c) => ({ $key: c.payload.key, ...c.payload.val() }));
+    });
+  }
+
 }
