@@ -10,7 +10,10 @@ export class ResourcesService {
   private _resources: Observable<IResource[]>;
   private _organizations: Observable<IOragnization[]>;
 
-  constructor(private _fbDB: AngularFireDatabase) { }
+  constructor(private _fbDB: AngularFireDatabase) {
+    this._fetchOrganizations();
+    this._fetchResources();
+   }
 
   get resources(): Observable<IResource[]> {
     return this._resources;
@@ -28,7 +31,7 @@ export class ResourcesService {
     });
   }
 
-  private _fetchResources() {
+  private _fetchResources(): void {
     this._resources = this._fbDB.list('resources', (ref: firebase.database.Reference) => {
       return ref.orderByChild('id');
     }).snapshotChanges().map((changes: any) => {

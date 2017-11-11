@@ -15,6 +15,9 @@ import { environment } from '../../environments/environment';
     AngularFireDatabaseModule,
     AngularFireAuthModule
   ],
+  providers: [
+    ...SERVICES, ResourcesService
+  ],
   declarations: []
 })
 export class CoreModule {

@@ -2,20 +2,20 @@
   <span>Classroot Tech - Resources</span>
 </mat-toolbar>
 
+<!-- Resources -->
 <section fxLayout="column" fxLayout.gt-xs="row" fxLayoutWrap>
   <div fxFlex.gt-xs="50">
-    <mat-card *ngFor="let item of dummyResources">
+    <mat-card *ngFor="let item of (resources | async)">
       <mat-card-title>{{item.title}}</mat-card-title>
       <mat-card-content>{{item.content}}</mat-card-content>
     </mat-card>
   </div>
 </section>
 
-<!-- Learn More -->
+<!-- Companies -->
 <section>
   <h1>Learn more from these companays!!</h1>
-  <!-- <div *ngFor="let org of dummyOrganizations">
-    <img [href]="org.url" [src]="org.imgurl" [alt]="org.altimg">
-  </div> -->
-
+  <div *ngFor="let org of (organizations | async)">
+    <img (click)="openURL(org.url)" [src]="org.imgurl" [alt]="org.altimg">
+  </div>
 </section>
