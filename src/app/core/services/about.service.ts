@@ -18,7 +18,7 @@ export class AboutService {
   }
 
   private _fetchDevelopers() {
-    this._developers = this._fbDB.list('organizations', (ref: firebase.database.Reference) => {
+    this._developers = this._fbDB.list('developers', (ref: firebase.database.Reference) => {
       return ref.orderByChild('id');
     }).snapshotChanges().map((changes: any) => {
       return changes.map((c) => ({ $key: c.payload.key, ...c.payload.val() }));
