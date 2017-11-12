@@ -7,19 +7,20 @@ export class UploaderService {
   private _storageRef: any;
 
   constructor(private _fbDB: AngularFireDatabase) {
-    this._storageRef = firebase.storage();
+    this._storageRef = firebase.storage().ref('uploads');
   }
 
   public uploadFile(file: File, type: string, callback: any): void {
     if (file) {
-      this._fbDB.list('upload').push({
+      this._fbDB.list('uploads').push({
         type: type,
       }).then((result) => {
+        const extension: string = file.name.substring(file.name.lastIndexOf('.'));
         this._storageRef
-          .ref('upload/' + result.key + '-' + file.name)
+          .child(result.key + extension)
           .put(file).then((snapshot) => {
             this._fbDB
-              .object('upload/' + result.key).update({
+              .object('uploads/' + result.key).update({
                 photoUrl: snapshot.downloadURL
               }).then(() => {
                 this._fbDB.object('analyze/' + result.key).set({

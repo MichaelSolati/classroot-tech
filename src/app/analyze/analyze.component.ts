@@ -1,9 +1,9 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 
-import { UploaderService } from '../core/services';
+import { UploaderService, ClassroomsService } from '../core/services';
 
 import { SelectComponent } from './select/select.component';
 
@@ -17,9 +17,13 @@ export class AnalyzeComponent implements OnInit {
   private _photo: File;
   private _photo64: string;
   private _processing: boolean;
+  private _result: Observable<any>;
   private _type: string;
 
-  constructor(private _snackbar: MatSnackBar, private _router: Router, private _us: UploaderService, public dialog: MatDialog) { }
+  constructor(
+    private _snackbar: MatSnackBar, private _cs: ClassroomsService, private _us: UploaderService,
+    public dialog: MatDialog, private _zone: NgZone
+  ) { }
 
   ngOnInit() {
   }
@@ -30,6 +34,10 @@ export class AnalyzeComponent implements OnInit {
 
   get processing(): boolean {
     return this._processing;
+  }
+
+  get result(): Observable<any> {
+    return this._result;
   }
 
   private _openDialog(): void {
@@ -61,7 +69,7 @@ export class AnalyzeComponent implements OnInit {
           this._processing = false;
           this._snackbar.open(err.message, null, { duration: 3000 });
         } else {
-          this._router.navigate(['/', 'analyze', success]);
+          this._zone.run(() => this._result = this._cs.findById(success));
         }
       });
     }

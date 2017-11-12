@@ -8,6 +8,6 @@ export class ClassroomsService {
   constructor(private _fbDB: AngularFireDatabase) { }
 
   public findById(id: string): Observable<any> {
-    return this._fbDB.object('/classrooms/' + id).valueChanges().map((event: any) => ({ $key: id, ...event }));
+    return this._fbDB.object('/uploads/' + id).valueChanges().map((event: any) => ({ $key: id, ...event }));
   }
 }
