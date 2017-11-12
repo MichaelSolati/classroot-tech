@@ -4,7 +4,7 @@
       <mat-card>
         <mat-card-title>We care a lot about computing, and we care a lot about equity.</mat-card-title>
         <mat-card-content>
-          <p>That’s why we we created Classroot, a web application to help teachers make their CS classrooms as inclusive as
+          <p>That’s why we created Classroot, a web application to help teachers make their CS classrooms as inclusive as
             possible.
           </p>
           <p>Research shows that stereotypically “tech-bro” classrooms make girls less likely to take computer science courses.
@@ -24,7 +24,7 @@
         <mat-card-title>{{developer.name}}</mat-card-title>
         <img mat-card-image [src]="developer.image" [alt]="developer.name">
         <mat-card-content>{{developer.bio}}</mat-card-content>
-        <mat-card-actions>
+        <mat-card-actions fxLayout="row" fxLayoutAlign="center">
           <img *ngIf="developer.linkedin" (click)="openLinkedIn(developer.linkedin)" src="assets/icons/linkedin.png" class="icon">
           <img *ngIf="developer.github" (click)="openGitHub(developer.github)" src="assets/icons/github.png" class="icon">
           <img *ngIf="developer.twitter" (click)="openTwitter(developer.twitter)" src="assets/icons/twitter.png" class="icon">
