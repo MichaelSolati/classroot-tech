@@ -10,15 +10,15 @@
     <div *ngSwitchCase="i" fxFlex.xs="100" fxFlex.md="80" fxFlex.lg="60" class="mat-card-padding">
       <mat-card>
         <mat-card-header>
-          <mat-card-title>{{question.$key}}</mat-card-title>
+          <mat-card-title>Just answer a few simple questions for us...</mat-card-title>
         </mat-card-header>
         <mat-card-content *ngFor="let question of (questions | async)">
-          <p>{{question.content}}</p>
+          <mat-checkbox>{{question.content}}</mat-checkbox>
         </mat-card-content>
-        <mat-card-actions>
+        <!-- <mat-card-actions>
           <button mat-button (click)="next(true, question.$key)">YES</button>
           <button mat-button (click)="next(false, question.$key)">NO</button>
-        </mat-card-actions>
+        </mat-card-actions> -->
       </mat-card>
     </div>
   </ng-template>

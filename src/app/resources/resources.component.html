@@ -7,11 +7,11 @@
 
 <section fxLayout="column" fxLayout.gt-xs="row" fxLayoutWrap>
   <!-- Resources -->
-  <div *ngFor="let item of resources | async" fxFlex.xs="100" fxFlex.md="33" class="mat-card-padding">
+  <div *ngFor="let resource of resources | async" fxFlex.xs="100" fxFlex.md="33" class="mat-card-padding">
     <mat-card>
-      <mat-card-title>{{item.title}}</mat-card-title>
-      <img mat-card-image [src]="(item.imgurl || 'https://material.angular.io/assets/img/examples/shiba2.jpg')" alt="Photo of a Shiba Inu">
-      <mat-card-content>{{item.content}}</mat-card-content>
+      <mat-card-title>{{resource.title}}</mat-card-title>
+      <img mat-card-image [src]="(resource.url || 'https://material.angular.io/assets/img/examples/shiba2.jpg')" alt="Photo of a Shiba Inu">
+      <mat-card-content>{{resource.content}}</mat-card-content>
     </mat-card>
   </div>
 
