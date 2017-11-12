@@ -1,4 +1,7 @@
 <mat-toolbar color="primary">
+  <button mat-button (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
   <span>Classroot Tech - Resources</span>
 </mat-toolbar>
 
@@ -14,7 +17,7 @@
 
 <!-- Companies -->
 <section>
-  <h1>Learn more from these companays!!</h1>
+  <h1>Keep exploring with these companies</h1>
   <div *ngFor="let org of (organizations | async)">
     <img (click)="openURL(org.url)" [src]="org.imgurl" [alt]="org.altimg">
   </div>
