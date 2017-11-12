@@ -2,14 +2,34 @@
   <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutAlign="center" fxLayoutWrap>
     <div fxFlex.xs="100" fxFlex.sm="90" fxFlex.lg="80" class="mat-card-padding">
       <mat-card>
-        <mat-card-title>We care a lot about computing, and we care a lot about equity.</mat-card-title>
+        <mat-card-title>
+          <h2>We care a lot about computing, and even more about equity.</h2>
+        </mat-card-title>
         <mat-card-content>
-          <p>That’s why we created Classroot, a web application to help teachers make their CS classrooms as inclusive as
-            possible.
-          </p>
-          <p>Research shows that stereotypically “tech-bro” classrooms make girls less likely to take computer science courses.
-            Simple changes can, well, change this. We help teachers assess their environments and take simple steps to improve.</p>
-          <p>We’re ready to grow — are you?</p>
+          <h3>That’s why we created Classroot, a web application to help teachers make their CS classrooms as inclusive as possible.
+          </h3>
+          <h3>Research shows that stereotypically “tech-bro” classrooms make girls less likely to take computer science courses.
+            Simple changes can, well, change this. We help teachers assess their environments and take simple steps to improve.</h3>
+          <h3>We’re ready to grow — are you?</h3>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div fxFlex.xs="100" fxFlex.sm="90" fxFlex.lg="80" class="mat-card-padding">
+      <mat-card>
+        <mat-card-title>
+          <h2>We're not done just yet.</h2>
+        </mat-card-title>
+        <mat-card-content>
+          <h3>Our goal is to make inclusivity part of every teacher's daily routine. We will extend 
+            Alexa integration to provide to do lists and curricular insights - and making Classroot an even more helpful teacher's aide.
+          </h3>
+          <h3>You can currently text ( 562-247-0818 ) for information provided by Alexa. In the future, (and with users' consent) 
+            we will send the results of their classroom analyses right to their mobile devices.
+          </h3>
+          <h3>By continuing to train our algorithm with our users' input, we can improve the accuracy of our
+            training model. 
+            We're excited to see Classroot grow into a more accurate, useful, and inclusive product for everyone. 
+          </h3>
         </mat-card-content>
       </mat-card>
     </div>
@@ -17,7 +37,7 @@
 </section>
 
 <section>
-  <h3 class="text-center">The team behind Classroot</h3>
+  <h1 class="text-center">The team behind Classroot</h1>
   <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutAlign="center" fxLayoutWrap>
     <div *ngFor="let developer of developers | async" fxFlex.xs="100" fxFlex.gt-xs="50" fxFlex.gt-sm="33" fxFlex.gt-md="20" class="mat-card-padding">
       <mat-card>
