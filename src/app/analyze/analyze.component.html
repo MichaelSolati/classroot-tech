@@ -12,7 +12,7 @@
         <mat-card-header>
           <mat-card-title>{{question.$key}}</mat-card-title>
         </mat-card-header>
-        <mat-card-content>
+        <mat-card-content *ngFor="let question of (questions | async)">
           <p>{{question.content}}</p>
         </mat-card-content>
         <mat-card-actions>

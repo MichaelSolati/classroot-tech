@@ -27,17 +27,9 @@
     <mat-card-title>{{developer.name}}</mat-card-title>
     <img mat-card-image [src]="developer.image" [alt]="developer.name">
     <mat-card-content>{{developer.bio}}</mat-card-content>
-    <button *ngIf="developer.linkedin">
-      <img src="assets/icons/linkedin.png">
-    </button>
-    <button *ngIf="developer.github">
-      <img src="assets/icons/github.png">
-    </button>
-    <button *ngIf="developer.twitter">
-      <img src="assets/icons/twitter.png">
-    </button>
-    <button *ngIf="developer.devpost">
-      <img src="assets/icons/devpost.png">
-    </button>
+    <img *ngIf="developer.linkedin" (click)="openLinkedIn(developer.linkedin)" src="assets/icons/linkedin.png" class="icon">
+    <img *ngIf="developer.github" (click)="openGitHub(developer.github)" src="assets/icons/github.png" class="icon">
+    <img *ngIf="developer.twitter" (click)="openTwitter(developer.twitter)" src="assets/icons/twitter.png" class="icon">
+    <img *ngIf="developer.devpost" (click)="openDevPost(developer.devpost)" src="assets/icons/devpost.png" class="icon">
   </mat-card>
 </section>
