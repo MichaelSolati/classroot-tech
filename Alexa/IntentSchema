@@ -1,0 +1,57 @@
+{
+  "intents": [
+    {
+      "intent": "AMAZON.CancelIntent"
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "EndSessionIntent"
+    },
+    {
+      "intent": "GetResultIntent"
+    },
+    {
+      "intent": "GetFiguresIntent"
+    },
+    {
+      "intent": "GetHelpIntent"
+    },
+    {
+      "intent": "SendInfoIntent"
+    },
+    {
+      "intent": "GetIdeasIntent"
+    },
+    {
+      "intent": "ContinueIntent"
+    },
+    {
+      "slots": [
+        {
+          "name": "course",
+          "type": "subject"
+        }
+      ],
+      "intent": "SubjectIntent"
+    },
+    {
+      "slots": [
+        {
+          "name": "fname",
+          "type": "name"
+        }
+      ],
+      "intent": "GetInfoIntent"
+    }
+  ]
+}
+
+
+subject computer science | math
+name  Sister Mary | Turing
+
