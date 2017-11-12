@@ -35,16 +35,16 @@ function processClassroom(result) {
   results.forEach(element => {
     if (element['w3c']['name'].includes('Green')) {
       return {
-        general: 'plants, art works, no violence',
-        color: 'nice balance of colors',
+        general: 'Plants, art works, no violence.',
+        color: 'Nice balance of colors.',
         comment: 'Your classroom has some great elements! Plants and art works create a natural, comfortable atmosphere'
       }
     }
   });
   return {
-    general: 'some violence in poster, unorganized room',
-    color: 'lack of colors',
-    comment: 'Let\'s try to aim for a neutral, welcoming classroom! Try to avoid violent images and add few plants, artworks, and/or brighter colors overall'
+    general: 'Some violence in poster, unorganized room.',
+    color: 'Lack of colors.',
+    comment: 'Let\'s try to aim for a neutral, welcoming classroom! Try to avoid violent images and add a few plants, pieces of art, or brighter colors overall'
   }
 }
 
@@ -55,13 +55,11 @@ function processGender(result) {
     const gender = element['data']['face']['gender_appearance']['concepts'][0]['name'];
     (gender === 'masculine') ? male += 1: female += 1;
   });
-  if (male > female) {
-    return 'consider adding more feminine figures';
-  } else if (male < female) {
-    return 'consider adding more masculine figures';
-  } else {
-    return 'good job!';
+  if (male !== female) {
+    return 'It is important to to display a diverse group of techmakers. Consider improving the gender diversity.';
   }
+  return 'Great job representing techmakers of all genders!';
+
 }
 
 function processEthnicity(result) {
@@ -69,17 +67,15 @@ function processEthnicity(result) {
   result.forEach((element) => {
     const ethnicity = element['data']['face']['multicultural_appearance']['concepts'][0]['name'];
     console.log(ethnicity)
-    if (result[ethnicity]) {
-      result[ethnicity] += 1;
+    if (results[ethnicity]) {
+      results[ethnicity] += 1;
     } else {
-      result[ethnicity] = 1;
+      results[ethnicity] = 1;
     }
   });
   for (let ethnicity in results) {
-    console.log(ethnicity)
-    console.log(results[ethnicity] / result.length)
     if (results[ethnicity] / result.length > 0.5) {
-      return 'Your image seems to contain predominantly ' + ethnicity + ' people. Maybe consider adding more varieties of ethnic backgrounds!';
+      return 'Your image seems to contain predominantly ' + ethnicity + ' people. Consider improving your representation of techmakers of various ethnic backgrounds.';
     }
   }
   return 'It\'s great that you\'ve represented a diverse range of influential figures. Good job!'

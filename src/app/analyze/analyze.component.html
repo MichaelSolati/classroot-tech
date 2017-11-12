@@ -2,7 +2,7 @@
   <div fxFlex.xs="100" fxFlex.md="80" fxFlex.lg="60" class="mat-card-padding">
     <mat-card>
       <mat-card-header>
-        <mat-card-title>Picture</mat-card-title>
+        <mat-card-title>Analyze</mat-card-title>
       </mat-card-header>
       <mat-card-content class="text-center">
         <img *ngIf="photo" [src]="photo" alt="User selected photo" class="full-img">
@@ -16,8 +16,8 @@
     </mat-card>
   </div>
 </div>
-{{(result | async) | json}}
-<div fxLayout="row" fxLayoutAlign="center" *ngIf="!(result | async)?.result && processing">
+
+<div *ngIf="!result && !result?.result && processing">
   <div style="height: 100%; display: flex; align-items: center; justify-content: center;">
     <svg width="200px" height="200px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid"
       class="lds-rolling" style="background: none;">
@@ -33,18 +33,17 @@
   </div>
 </div>
 
-<div fxLayout="row" fxLayoutAlign="center" *ngIf="(result | async)?.result && processing">
+<div fxLayout="row" fxLayoutAlign="center" *ngIf="result && result?.result && processing">
   <div fxFlex.xs="100" fxFlex.md="80" fxFlex.lg="60" class="mat-card-padding">
     <mat-card>
       <mat-card-header>
         <mat-card-title>Analysis</mat-card-title>
       </mat-card-header>
       <mat-card-content class="text-center">
-        <img *ngIf="photo" [src]="photo" alt="User selected photo" class="full-img">
-        <p *ngIf="(result | async)?.result.color">{{(result | async)?.result.color}}</p>
-        <p *ngIf="(result | async)?.result.general">{{(result | async)?.result.general}}</p>
-        <p *ngIf="(result | async)?.result.gender">{{(result | async)?.result.gender}}</p>
-        <p *ngIf="(result | async)?.result.ethnicity">{{(result | async)?.result.ethnicity}}</p>
+        <img [src]="photo" alt="User selected photo" class="full-img">
+        <p *ngIf="result.result.gender" class="text-left">{{result.result.gender}}</p>
+        <p *ngIf="result.result.ethnicity" class="text-left">{{result.result.ethnicity}}</p>
+        <p *ngIf="result.result.comment" class="text-left">{{result.result.comment}}</p>
       </mat-card-content>
       <mat-card-actions>
         <a mat-button [routerLink]="['/', 'learn']">LEARN MORE</a>

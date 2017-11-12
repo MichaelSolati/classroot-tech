@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSnackBar, MatDialog } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 
 import { UploaderService, ClassroomsService } from '../core/services';
 
@@ -12,12 +13,13 @@ import { SelectComponent } from './select/select.component';
   templateUrl: './analyze.component.html',
   styleUrls: ['./analyze.component.scss'],
 })
-export class AnalyzeComponent implements OnInit {
+export class AnalyzeComponent implements OnInit, OnDestroy {
   @ViewChild('fileInput') fileInput: ElementRef;
   private _photo: File;
   private _photo64: string;
   private _processing: boolean;
-  private _result: Observable<any>;
+  private _result: any;
+  private _resultSub: Subscription;
   private _type: string;
 
   constructor(
@@ -28,6 +30,10 @@ export class AnalyzeComponent implements OnInit {
   ngOnInit() {
   }
 
+  ngOnDestroy() {
+    if (this._resultSub) { this._resultSub.unsubscribe(); }
+  }
+
   get photo(): string {
     return this._photo64;
   }
@@ -36,7 +42,7 @@ export class AnalyzeComponent implements OnInit {
     return this._processing;
   }
 
-  get result(): Observable<any> {
+  get result(): any {
     return this._result;
   }
 
@@ -69,7 +75,9 @@ export class AnalyzeComponent implements OnInit {
           this._processing = false;
           this._snackbar.open(err.message, null, { duration: 3000 });
         } else {
-          this._zone.run(() => this._result = this._cs.findById(success));
+          this._zone.run(() => {
+            this._resultSub = this._cs.findById(success).subscribe((val) => this._result = val);
+          });
         }
       });
     }
