@@ -5,20 +5,27 @@
   <span>Classroot Tech - Resources</span>
 </mat-toolbar>
 
-<!-- Resources -->
 <section fxLayout="column" fxLayout.gt-xs="row" fxLayoutWrap>
-  <div fxFlex.gt-xs="50">
-    <mat-card *ngFor="let item of (resources | async)">
+  <!-- Resources -->
+  <div *ngFor="let item of resources | async" fxFlex.xs="100" fxFlex.md="33" class="mat-card-padding">
+    <mat-card>
       <mat-card-title>{{item.title}}</mat-card-title>
+      <img mat-card-image [src]="(item.imgurl || 'https://material.angular.io/assets/img/examples/shiba2.jpg')" alt="Photo of a Shiba Inu">
       <mat-card-content>{{item.content}}</mat-card-content>
     </mat-card>
   </div>
-</section>
 
-<!-- Companies -->
-<section>
-  <h1>Keep exploring with these companies</h1>
-  <div *ngFor="let org of (organizations | async)">
-    <img (click)="openURL(org.url)" [src]="org.imgurl" [alt]="org.altimg">
+  <!-- Companies -->
+  <div fxFlex="100" class="mat-card-padding">
+    <mat-card>
+      <mat-card-title>Keep exploring with these companies</mat-card-title>
+      <mat-card-content>
+        <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutWrap>
+          <div *ngFor="let org of organizations | async" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="33" fxFlex.lg="25">
+            <img (click)="openURL(org.url)" [src]="(org.imgurl || 'https://material.angular.io/assets/img/examples/shiba2.jpg')" [alt]="org.altimg" class="full-img">
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
   </div>
 </section>

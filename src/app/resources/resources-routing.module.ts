@@ -2,15 +2,14 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ResourcesComponent } from './resources.component';
-import { PageComponent } from './page/page.component';
 
 const routes: Routes = [{
   path: '',
   pathMatch: 'full',
   component: ResourcesComponent
 }, {
-  path: ':id',
-  component: PageComponent
+  path: '**',
+  redirectTo: '/resources'
 }];
 
 @NgModule({
