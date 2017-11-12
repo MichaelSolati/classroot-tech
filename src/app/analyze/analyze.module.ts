@@ -5,6 +5,7 @@ import { SharedModule } from '../shared/shared.module';
 
 import { AnalyzeRoutingModule } from './analyze-routing.module';
 import { AnalyzeComponent } from './analyze.component';
+import { ResultComponent } from './result/result.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,8 @@ import { AnalyzeComponent } from './analyze.component';
     AnalyzeRoutingModule
   ],
   declarations: [
-    AnalyzeComponent
+    AnalyzeComponent,
+    ResultComponent
   ]
 })
 export class AnalyzeModule { }
