@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { MatSnackBar } from '@angular/material';
 
@@ -10,7 +11,11 @@ import { MatSnackBar } from '@angular/material';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private _snackbar: MatSnackBar) { }
+  constructor(private _router: Router, private _snackbar: MatSnackBar) { }
 
   ngOnInit() { }
+
+  public goTo(page: string): void {
+  	this._router.navigate(['/', page]);
+  }
 }
