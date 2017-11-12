@@ -2,6 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Fauna+One');
 
 @import '~@angular/material/theming';
 @include mat-core();
@@ -27,6 +28,11 @@ body {
   font-size: 16px;
 }
 
-h1, h2, h3, h4, h5, h6, label, p {
+h1, h2, h3, h4, h5, h6, label {
   color: $text !important;
+  font-family: 'Fauna One', serif;
+}
+
+mat-card-title {
+	font-family: 'Fauna One', serif;
 }
