@@ -1,28 +1,28 @@
 import { Component, OnInit, ViewEncapsulation, Input, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { Observable } from 'rxjs/Observable';
 
 import { UploaderService } from '../core/services';
-import { Observable } from 'rxjs/Observable';
+
+import { SelectComponent } from './select/select.component';
 
 @Component({
   selector: 'cr-analyze',
   templateUrl: './analyze.component.html',
   styleUrls: ['./analyze.component.scss'],
-  encapsulation: ViewEncapsulation.None
 })
 export class AnalyzeComponent implements OnInit {
-  private _count = 0;
   @ViewChild('fileInput') fileInput: ElementRef;
   private _photo: File;
   private _photo64: string;
   private _processing: boolean;
-  private _questionnaire: any = {};
+  private _type: string;
 
   constructor(
     private _location: Location, private _snackbar: MatSnackBar,
-    private _router: Router, private _us: UploaderService
+    private _router: Router, private _us: UploaderService, public dialog: MatDialog
   ) { }
 
   ngOnInit() {
@@ -40,9 +40,13 @@ export class AnalyzeComponent implements OnInit {
     this._location.back();
   }
 
-  public next(value: boolean, key: string): void {
-    this._questionnaire[key] = value;
-    this._count += 1;
+  private _openDialog(): void {
+    const dialogRef = this.dialog.open(SelectComponent, {
+      width: '250px'
+    });
+    dialogRef.afterClosed().subscribe((result?: string) => {
+      this._type = (result || 'Classroom');
+    });
   }
 
   public selectPhoto(event: any): void {
@@ -53,13 +57,14 @@ export class AnalyzeComponent implements OnInit {
       const reader = new FileReader();
       reader.readAsDataURL(this._photo);
       reader.onload = () => this._photo64 = reader.result;
+      this._openDialog();
     }
   }
 
   public submit(): void {
     if (this._photo) {
       this._processing = true;
-      this._us.uploadFile(this._photo, this._questionnaire, (err: Error, success: string) => {
+      this._us.uploadFile(this._photo, this._type, (err: Error, success: string) => {
         if (err) {
           this._processing = false;
           this._snackbar.open(err.message, null, { duration: 3000 });

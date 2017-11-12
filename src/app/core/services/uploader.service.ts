@@ -10,23 +10,20 @@ export class UploaderService {
     this._storageRef = firebase.storage();
   }
 
-  public uploadFile(file: File, questionnaire: any, callback: any): void {
+  public uploadFile(file: File, type: string, callback: any): void {
     if (file) {
-      const date: number = new Date().getTime();
-      this._fbDB.list('classroom').push({
-        questionnaire: questionnaire,
-        uploadedOn: date
+      this._fbDB.list('upload').push({
+        type: type,
       }).then((result) => {
         this._storageRef
-          .ref('classroom/' + result.key + '-' + file.name)
+          .ref('upload/' + result.key + '-' + file.name)
           .put(file).then((snapshot) => {
             this._fbDB
-              .object('classroom/' + result.key).update({
+              .object('upload/' + result.key).update({
                 photoUrl: snapshot.downloadURL
               }).then(() => {
                 this._fbDB.object('analyze/' + result.key).set({
-                  questionnaire: questionnaire,
-                  uploadedOn: date,
+                  type: type,
                   photoUrl: snapshot.downloadURL
                 });
                 callback(null, result.key);

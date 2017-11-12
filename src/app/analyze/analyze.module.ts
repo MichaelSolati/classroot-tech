@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { AnalyzeRoutingModule } from './analyze-routing.module';
 import { AnalyzeComponent } from './analyze.component';
 import { ResultComponent } from './result/result.component';
+import { SelectComponent } from './select/select.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,11 @@ import { ResultComponent } from './result/result.component';
   ],
   declarations: [
     AnalyzeComponent,
-    ResultComponent
+    ResultComponent,
+    SelectComponent
+  ],
+  entryComponents: [
+    SelectComponent
   ]
 })
 export class AnalyzeModule { }
