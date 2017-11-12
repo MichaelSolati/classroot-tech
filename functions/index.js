@@ -37,14 +37,14 @@ function processClassroom(result) {
       return {
         general: 'Plants, art works, no violence.',
         color: 'Nice balance of colors.',
-        comment: 'Your classroom has some great elements! Plants and art works create a natural, comfortable atmosphere'
+        comment: 'Your classroom has some great elements! Plants and art works create a natural, comfortable atmosphere.'
       }
     }
   });
   return {
     general: 'Some violence in poster, unorganized room.',
     color: 'Lack of colors.',
-    comment: 'Let\'s try to aim for a neutral, welcoming classroom! Try to avoid violent images and add a few plants, pieces of art, or brighter colors overall'
+    comment: 'Let\'s try to aim for a neutral, welcoming classroom! Try to avoid violent images and add a few plants, pieces of art, or brighter colors overall.'
   }
 }
 
@@ -78,7 +78,7 @@ function processEthnicity(result) {
       return 'Your image seems to contain predominantly ' + ethnicity + ' people. Consider improving your representation of techmakers of various ethnic backgrounds.';
     }
   }
-  return 'It\'s great that you\'ve represented a diverse range of influential figures. Good job!'
+  return 'It\'s great that you\'ve represented an ethnically diverse range of influential figures. Good job!'
 }
 
 function processWall(result) {
