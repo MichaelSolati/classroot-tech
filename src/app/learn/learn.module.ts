@@ -3,17 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { SharedModule } from '../shared/shared.module';
 
-import { ResourcesRoutingModule } from './resources-routing.module';
-import { ResourcesComponent } from './resources.component';
+import { LearnRoutingModule } from './learn-routing.module';
+import { LearnComponent } from './learn.component';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
-    ResourcesRoutingModule
+    LearnRoutingModule
   ],
   declarations: [
-    ResourcesComponent
+    LearnComponent
   ]
 })
-export class ResourcesModule { }
+export class LearnModule { }

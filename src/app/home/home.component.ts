@@ -16,6 +16,6 @@ export class HomeComponent implements OnInit {
   ngOnInit() { }
 
   public goTo(page: string): void {
-  	this._router.navigate(['/', page]);
+    this._router.navigate(['/', page]);
   }
 }

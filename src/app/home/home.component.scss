@@ -1,23 +1,25 @@
-mat-card-header {
-	background-color: #DCEDC8;
-	margin: -24px -24px 16px -24px !important;
-	padding: 0 !important;
-	&:hover {
-		background-color: #689F38;
-		transition-timing-function: ease-in;
-	}
-
-	div.mat-card-header-text {
-		text-align: center;
-		width: 100%;
-		mat-card-title {
-			margin: 48px auto;
-			text-align: center;
-			font-size: 40px !important;
-		}
-	}
-}
-
-p{
-	font-size: 1.4em;
+cr-home {
+  mat-card-header {
+    background-color: #DCEDC8;
+    margin: -24px -24px 16px -24px !important;
+		padding: 0 !important;
+		transition: 0.33s ease-out;
+    &:hover {
+			background-color: #689F38;
+			color: #ffffff;
+      transition-timing-function: ease-in;
+    }
+    div.mat-card-header-text {
+      text-align: center;
+      width: 100%;
+      mat-card-title {
+        margin: 48px auto;
+        text-align: center;
+        font-size: 40px !important;
+      }
+    }
+  }
+  p {
+    font-size: 1.4em;
+  }
 }

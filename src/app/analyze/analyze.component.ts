@@ -1,7 +1,6 @@
-import { Component, OnInit, ViewEncapsulation, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
-import { Location } from '@angular/common';
-import { MatSnackBar, MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatSnackBar, MatDialog } from '@angular/material';
 import { Observable } from 'rxjs/Observable';
 
 import { UploaderService } from '../core/services';
@@ -20,10 +19,7 @@ export class AnalyzeComponent implements OnInit {
   private _processing: boolean;
   private _type: string;
 
-  constructor(
-    private _location: Location, private _snackbar: MatSnackBar,
-    private _router: Router, private _us: UploaderService, public dialog: MatDialog
-  ) { }
+  constructor(private _snackbar: MatSnackBar, private _router: Router, private _us: UploaderService, public dialog: MatDialog) { }
 
   ngOnInit() {
   }
@@ -34,10 +30,6 @@ export class AnalyzeComponent implements OnInit {
 
   get processing(): boolean {
     return this._processing;
-  }
-
-  public goBack(): void {
-    this._location.back();
   }
 
   private _openDialog(): void {

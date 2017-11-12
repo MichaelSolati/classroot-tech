@@ -1,18 +1,17 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Location } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { ResourcesService } from '../core/services';
 import { IResource, IOragnization, IQuestion } from '../core/interfaces/index';
 
 @Component({
-  selector: 'cr-resources',
-  templateUrl: './resources.component.html',
-  styleUrls: ['./resources.component.scss'],
+  selector: 'cr-learn',
+  templateUrl: './learn.component.html',
+  styleUrls: ['./learn.component.scss'],
 })
-export class ResourcesComponent implements OnInit {
+export class LearnComponent implements OnInit {
 
-  constructor(private _rs: ResourcesService, private _location: Location) { }
+  constructor(private _rs: ResourcesService) { }
 
   ngOnInit() {
   }
@@ -29,12 +28,7 @@ export class ResourcesComponent implements OnInit {
     return this._rs.resources;
   }
 
-  public goBack(): void {
-    this._location.back();
-  }
-
   public openURL(url: string): void {
     window.open(url, '_blank');
   }
-
 }

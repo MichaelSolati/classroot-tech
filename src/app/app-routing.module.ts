@@ -8,8 +8,8 @@ const routes: Routes = [{
   path: 'analyze',
   loadChildren: 'app/analyze/analyze.module#AnalyzeModule'
 }, {
-  path: 'resources',
-  loadChildren: 'app/resources/resources.module#ResourcesModule'
+  path: 'learn',
+  loadChildren: 'app/learn/learn.module#LearnModule'
 }, {
   path: '',
   loadChildren: 'app/home/home.module#HomeModule'

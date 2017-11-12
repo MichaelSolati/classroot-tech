@@ -1,5 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Location } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { AboutService } from '../core/services/about.service';
@@ -12,17 +11,13 @@ import { IDeveloper } from '../core/interfaces';
 })
 export class AboutComponent implements OnInit {
 
-  constructor(private _as: AboutService, private _location: Location) { }
+  constructor(private _as: AboutService) { }
 
   ngOnInit() {
   }
 
   get developers(): Observable<IDeveloper[]> {
     return this._as.developers;
-  }
-
-  public goBack(): void {
-    this._location.back();
   }
 
   public openTwitter(username: string): void {
@@ -34,11 +29,10 @@ export class AboutComponent implements OnInit {
   }
 
   public openDevPost(username: string): void {
-    window.open('https://devpost.com/RobertCrowdis' + username, '_blank');
+    window.open('https://devpost.com/' + username, '_blank');
   }
 
   public openLinkedIn(username: string): void {
     window.open('https://www.linkedin.com/in/' + username, '_blank');
   }
-
 }

@@ -1,33 +1,36 @@
-<mat-toolbar color="primary">
-  <button mat-button (click)="goBack()">
-    <mat-icon>arrow_back</mat-icon>
-  </button>
-  <span>Classroot Tech - About Us</span>
-</mat-toolbar>
-
 <section>
-  <mat-card>
-    <mat-card-content>
-      <h1>We care a lot about computing, and we care a lot about equity. </h1>
-      <p>That’s why we we created Classroot, a web application to help teachers make their CS classrooms as inclusive as possible.</p>
-
-      <p>Research shows that stereotypically “tech-bro” classrooms make girls less likely to take
-        computer science courses. Simple changes can, well, change this. We help teachers assess their environments and take simple steps to improve.</p>
-
-      <p>We’re ready to grow — are you?</p>
-    </mat-card-content>
-  </mat-card>
+  <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutAlign="center" fxLayoutWrap>
+    <div fxFlex.xs="100" fxFlex.sm="90" fxFlex.lg="80" class="mat-card-padding">
+      <mat-card>
+        <mat-card-title>We care a lot about computing, and we care a lot about equity.</mat-card-title>
+        <mat-card-content>
+          <p>That’s why we we created Classroot, a web application to help teachers make their CS classrooms as inclusive as
+            possible.
+          </p>
+          <p>Research shows that stereotypically “tech-bro” classrooms make girls less likely to take computer science courses.
+            Simple changes can, well, change this. We help teachers assess their environments and take simple steps to improve.</p>
+          <p>We’re ready to grow — are you?</p>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
 </section>
 
 <section>
-  <h1>The Team behind Classroot</h1>
-  <mat-card *ngFor="let developer of (developers | async)">
-    <mat-card-title>{{developer.name}}</mat-card-title>
-    <img mat-card-image [src]="developer.image" [alt]="developer.name">
-    <mat-card-content>{{developer.bio}}</mat-card-content>
-    <img *ngIf="developer.linkedin" (click)="openLinkedIn(developer.linkedin)" src="assets/icons/linkedin.png" class="icon">
-    <img *ngIf="developer.github" (click)="openGitHub(developer.github)" src="assets/icons/github.png" class="icon">
-    <img *ngIf="developer.twitter" (click)="openTwitter(developer.twitter)" src="assets/icons/twitter.png" class="icon">
-    <img *ngIf="developer.devpost" (click)="openDevPost(developer.devpost)" src="assets/icons/devpost.png" class="icon">
-  </mat-card>
+  <h3 class="text-center">The team behind Classroot</h3>
+  <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutAlign="center" fxLayoutWrap>
+    <div *ngFor="let developer of developers | async" fxFlex.xs="100" fxFlex.gt-xs="50" fxFlex.gt-sm="33" fxFlex.gt-md="20" class="mat-card-padding">
+      <mat-card>
+        <mat-card-title>{{developer.name}}</mat-card-title>
+        <img mat-card-image [src]="developer.image" [alt]="developer.name">
+        <mat-card-content>{{developer.bio}}</mat-card-content>
+        <mat-card-actions>
+          <img *ngIf="developer.linkedin" (click)="openLinkedIn(developer.linkedin)" src="assets/icons/linkedin.png" class="icon">
+          <img *ngIf="developer.github" (click)="openGitHub(developer.github)" src="assets/icons/github.png" class="icon">
+          <img *ngIf="developer.twitter" (click)="openTwitter(developer.twitter)" src="assets/icons/twitter.png" class="icon">
+          <img *ngIf="developer.devpost" (click)="openDevPost(developer.devpost)" src="assets/icons/devpost.png" class="icon">
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
 </section>
