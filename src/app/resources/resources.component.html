@@ -5,8 +5,8 @@
   <span>Classroot Tech - Resources</span>
 </mat-toolbar>
 
+<!-- Resources -->
 <section fxLayout="column" fxLayout.gt-xs="row" fxLayoutWrap>
-  <!-- Resources -->
   <div *ngFor="let resource of resources | async" fxFlex.xs="100" fxFlex.md="33" class="mat-card-padding">
     <mat-card>
       <mat-card-title>{{resource.title}}</mat-card-title>
@@ -15,17 +15,36 @@
     </mat-card>
   </div>
 
-  <!-- Companies -->
+<!-- Questions -->
+<!-- Companies -->
   <div fxFlex="100" class="mat-card-padding">
     <mat-card>
       <mat-card-title>Keep learning. Keep teaching. Keep growing.</mat-card-title>
       <mat-card-content>
         <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutWrap>
           <div *ngFor="let org of organizations | async" fxFlex.xs="100" fxFlex.sm="50" fxFlex.md="33" fxFlex.lg="25">
-            <img (click)="openURL(org.url)" [src]="(org.imgurl || 'https://material.angular.io/assets/img/examples/shiba2.jpg')" [alt]="org.altimg" class="full-img">
+            <img (click)="openURL(org.url)" [src]="(org.imgurl || 'https://material.angular.io/assets/img/examples/shiba2.jpg')" [alt]="org.altimg"
+              class="full-img">
           </div>
         </div>
       </mat-card-content>
     </mat-card>
   </div>
 </section>
+
+<!-- [ngSwitch]="count" <ng-template let-i="index" ngFor let-question [ngForOf]="questions | async">
+    <div *ngSwitchCase="i" fxFlex.xs="100" fxFlex.md="80" fxFlex.lg="60" class="mat-card-padding">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Just answer a few simple questions for us...</mat-card-title>
+        </mat-card-header>
+        <mat-card-content *ngFor="let question of (questions | async)">
+          <mat-checkbox>{{question.content}}</mat-checkbox>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="next(true, question.$key)">YES</button>
+          <button mat-button (click)="next(false, question.$key)">NO</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </ng-template> -->

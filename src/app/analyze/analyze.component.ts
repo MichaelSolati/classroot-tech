@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { MatSnackBar } from '@angular/material';
 
-import { UploaderService, QuestionsService } from '../core/services';
+import { UploaderService } from '../core/services';
 import { Observable } from 'rxjs/Observable';
 
 @Component({
@@ -21,15 +21,11 @@ export class AnalyzeComponent implements OnInit {
   private _questionnaire: any = {};
 
   constructor(
-    private _location: Location, private _snackbar: MatSnackBar, private _qs: QuestionsService,
+    private _location: Location, private _snackbar: MatSnackBar,
     private _router: Router, private _us: UploaderService
   ) { }
 
   ngOnInit() {
-  }
-
-  get count(): number {
-    return this._count;
   }
 
   get photo(): string {
@@ -38,10 +34,6 @@ export class AnalyzeComponent implements OnInit {
 
   get processing(): boolean {
     return this._processing;
-  }
-
-  get questions(): Observable<any[]> {
-    return this._qs.questions;
   }
 
   public goBack(): void {
