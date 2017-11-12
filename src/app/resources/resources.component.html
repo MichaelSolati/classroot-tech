@@ -19,6 +19,6 @@
 <section>
   <h1>Keep exploring with these companies</h1>
   <div *ngFor="let org of (organizations | async)">
-    <img (click)="openURL(org.url)" [src]="org.imgurl" [alt]="org.altimg">
+    <img (click)="openLink(org.link)" [src]="org.imgurl" [alt]="org.altimg">
   </div>
 </section>

@@ -20,3 +20,24 @@
     </mat-card-content>
   </mat-card>
 </section>
+
+<section>
+  <h1>The Team behind Classroot</h1>
+  <mat-card *ngFor="let developer of (developers | async)">
+    <mat-card-title>{{developer.name}}</mat-card-title>
+    <img mat-card-image [src]="developer.image" [alt]="developer.name">
+    <mat-card-content>{{developer.bio}}</mat-card-content>
+    <button *ngIf="developer.linkedin">
+      <img src="assets/icons/linkedin.png">
+    </button>
+    <button *ngIf="developer.github">
+      <img src="assets/icons/github.png">
+    </button>
+    <button *ngIf="developer.twitter">
+      <img src="assets/icons/twitter.png">
+    </button>
+    <button *ngIf="developer.devpost">
+      <img src="assets/icons/devpost.png">
+    </button>
+  </mat-card>
+</section>
