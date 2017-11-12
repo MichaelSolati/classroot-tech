@@ -17,5 +17,4 @@ export class AboutComponent implements OnInit {
   public goBack(): void {
     this._location.back();
   }
-
 }
