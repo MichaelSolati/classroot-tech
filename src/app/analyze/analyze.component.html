@@ -1,4 +1,7 @@
 <mat-toolbar color="primary">
+  <button mat-button (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
   <span>Classroot Tech - Analyze</span>
 </mat-toolbar>
 
@@ -25,14 +28,14 @@
       <mat-card-header>
         <mat-card-title>Picture</mat-card-title>
       </mat-card-header>
-      <mat-card-content>
-        <img *ngIf="photo" [src]="photo" alt="User selected photo">
+      <mat-card-content class="text-center">
+        <img *ngIf="photo" [src]="photo" alt="User selected photo" class="full-img">
         <input #fileInput type="file" accept="image/*;capture=camera" (change)="selectPhoto($event)" class="hide">
         <p *ngIf="!photo">Select a photo so we can analyze your classroom</p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button (click)="takePicture()">{{(photo)? 'RE':null}}SELECT PICTURE</button>
-        <button mat-button *ngIf="photo" (click)="submit()">SUBMIT</button>
+        <button mat-button [disabled]="processing" (click)="takePicture()">{{(photo)? 'RE':null}}SELECT PICTURE</button>
+        <button mat-button [disabled]="processing" *ngIf="photo" (click)="submit()">SUBMIT</button>
       </mat-card-actions>
     </mat-card>
   </div>

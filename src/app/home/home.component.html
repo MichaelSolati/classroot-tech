@@ -1,5 +1,7 @@
 <mat-toolbar color="primary">
   <span>Classroot Tech</span>
+  <span class="fill-nav"></span>
+  <a mat-button [routerLink]="['/', 'about']">About</a>
 </mat-toolbar>
 
 <div fxLayout="column" fxLayout.gt-xs="row" fxLayoutAlign="center">
@@ -10,6 +12,7 @@
       </mat-card-header>
       <mat-card-content>
         <p>Upload a photo and get personalized suggestions to make your classroom more inclusive.</p>
+        <p>You will need to answer a few quick questions (hope you're ready).</p>
       </mat-card-content>
       <mat-card-actions>
         <a mat-button [routerLink]="['/', 'analyze']">ANALYZE CLASSROOM</a>
@@ -27,22 +30,6 @@
       </mat-card-content>
       <mat-card-actions>
         <a mat-button [routerLink]="['/', 'resources']">LEARN MORE</a>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-</div>
-
-<div fxLayout="column" fxLayout.gt-xs="row" fxLayoutAlign="center">
-  <div fxFlex.xs="100" fxFlex.sm="80" fxFlex.lg="66" class="mat-card-padding">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>About</mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <p>Understand our mission statement, support our project, and meet the team behind it all.</p>
-      </mat-card-content>
-      <mat-card-actions>
-        <a mat-button [routerLink]="['/', 'about']">About our Mission</a>
       </mat-card-actions>
     </mat-card>
   </div>

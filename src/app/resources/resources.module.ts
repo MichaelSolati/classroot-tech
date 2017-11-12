@@ -5,7 +5,6 @@ import { SharedModule } from '../shared/shared.module';
 
 import { ResourcesRoutingModule } from './resources-routing.module';
 import { ResourcesComponent } from './resources.component';
-import { PageComponent } from './page/page.component';
 
 @NgModule({
   imports: [
@@ -14,8 +13,7 @@ import { PageComponent } from './page/page.component';
     ResourcesRoutingModule
   ],
   declarations: [
-    ResourcesComponent,
-    PageComponent
+    ResourcesComponent
   ]
 })
 export class ResourcesModule { }

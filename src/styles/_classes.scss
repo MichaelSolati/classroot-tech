@@ -1,13 +1,22 @@
+.fill-nav {
+  flex: 1 1 auto;
+}
+
+.full-img {
+  margin: 0px 8px;
+  width: calc(100% - 16px) !important;
+}
+
 .full-size {
   width: 100%;
 }
 
-.full-width {
-  width: 100% !important;
-}
-
 .hide {
   display: none;
+}
+
+.mat-card-header-text {
+  margin: 0px 0px !important;
 }
 
 .mat-card-padding {

@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation, Input, ViewChild, ElementRef } from '@angular/core';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 import { MatSnackBar } from '@angular/material';
 
 import { UploaderService, QuestionsService } from '../core/services';
@@ -16,9 +17,13 @@ export class AnalyzeComponent implements OnInit {
   @ViewChild('fileInput') fileInput: ElementRef;
   private _photo: File;
   private _photo64: string;
+  private _processing: boolean;
   private _questionnaire: any = {};
 
-  constructor(private _snackbar: MatSnackBar, private _qs: QuestionsService, private _router: Router, private _us: UploaderService) { }
+  constructor(
+    private _location: Location, private _snackbar: MatSnackBar, private _qs: QuestionsService,
+    private _router: Router, private _us: UploaderService
+  ) { }
 
   ngOnInit() {
   }
@@ -31,8 +36,16 @@ export class AnalyzeComponent implements OnInit {
     return this._photo64;
   }
 
+  get processing(): boolean {
+    return this._processing;
+  }
+
   get questions(): Observable<any[]> {
     return this._qs.questions;
+  }
+
+  public goBack(): void {
+    this._location.back();
   }
 
   public next(value: boolean, key: string): void {
@@ -53,11 +66,12 @@ export class AnalyzeComponent implements OnInit {
 
   public submit(): void {
     if (this._photo) {
+      this._processing = true;
       this._us.uploadFile(this._photo, this._questionnaire, (err: Error, success: string) => {
         if (err) {
+          this._processing = false;
           this._snackbar.open(err.message, null, { duration: 3000 });
         } else {
-          console.log(success);
           this._router.navigate(['/', 'analyze', success]);
         }
       });

@@ -24,9 +24,12 @@ export class AboutComponent implements OnInit {
   public goBack(): void {
     this._location.back();
   }
+<<<<<<< HEAD
 
   public openWebsite(url: string): void {
     window.open(url, '_blank');
   }
 
+=======
+>>>>>>> dev
 }
