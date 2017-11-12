@@ -1,0 +1,20 @@
+EndSessionIntent Thank you
+GetFiguresIntent Who should I mention to class
+GetFiguresIntent Who should I mention to my class
+GetFiguresIntent Who should I mention during class
+GetHelpIntent I need help planning my lecture
+GetHelpIntent I need help with planning my lecture
+SendInfoIntent Can you send the info to me
+SendInfoIntent Can you send me the info
+SendInfoIntent Could you send me the info
+SendInfoIntent Could you send the info to me
+SendInfoIntent Can you text me the info
+GetIdeasIntent what should I bring to class today
+GetIdeasIntent what should I bring to my class today
+GetIdeasIntent What new ideas should I try for my class today
+GetIdeasIntent What should I try for my class today
+GetIdeasIntent How can I inspire my students today
+ContinueIntent Sounds good
+SubjectIntent I am teaching {course}
+SubjectIntent {course}
+GetInfoIntent What is {fname} known for
